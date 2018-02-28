@@ -13,19 +13,17 @@ def output(regel):
             return "ONGELDIG"
         if not 0 <= k1 + k2 <= 10:
             return "ONGELDIG"
-        for index, w in enumerate(bonussen):
-            if w != 0:
-                bonussen[index] -= 1
-                worpen[index] += k1
-                if index < 9:
-                    worpen[index + 1] += k1
+        for index, w in ((index, w) for index, w in enumerate(bonussen) if w != 0):
+            bonussen[index] -= 1
+            worpen[index] += k1
+            if index < 9:
+                worpen[index + 1] += k1
         if k1 != 10:
-            for index, w in enumerate(bonussen):
-                if w != 0:
-                    bonussen[index] -= 1
-                    worpen[index] += k2
-                    if index < 9:
-                        worpen[index + 1] += k2
+            for index, w in ((index, w) for index, w in enumerate(bonussen) if w != 0):
+                bonussen[index] -= 1
+                worpen[index] += k2
+                if index < 9:
+                    worpen[index + 1] += k2
         if k1 == 10:
             bonussen[i // 2] += 2
         elif k1 + k2 == 10:
