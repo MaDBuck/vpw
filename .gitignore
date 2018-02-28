@@ -3,6 +3,8 @@
 **/.idea/misc.xml
 **/.idea/vcs.xml
 **/.idea/modules.xml
+**/.idea/inspectionProfiles/*
+
 *.iml
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
