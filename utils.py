@@ -29,3 +29,19 @@ b = list(a)
 import re
 ignorecase = re.compile("test", re.IGNORECASE)
 re.match("test", "TesT", re.IGNORECASE)
+
+# Create alphabet list of lowercase letters
+alphabet = []
+for letter in range(97,123):
+    alphabet.append(chr(letter))
+ 
+>>> alphabet
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+ 
+# Create alphabet list of uppercase letters
+alphabet = []
+for letter in range(65, 91):
+    alphabet.append(chr(letter))
+ 
+>>> alphabet
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
