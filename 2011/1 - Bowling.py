@@ -9,9 +9,7 @@ def output(regel):
     for i in range(0, 19, 2):
         k1 = kegels[i]
         k2 = kegels[i + 1]
-        if not 0 <= k1 <= 10 or not 0 <= k2 <= 10:
-            return "ONGELDIG"
-        if not 0 <= k1 + k2 <= 10:
+        if not 0 <= k1 <= 10 or not 0 <= k2 <= 10 or not 0 <= k1 + k2 <= 10:
             return "ONGELDIG"
         for index, w in ((index, w) for index, w in enumerate(bonussen) if w != 0):
             bonussen[index] -= 1
