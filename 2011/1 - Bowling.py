@@ -44,9 +44,7 @@ def output(regel):
                 return "ONGELDIG"
         k2 = kegels[k2index]
         if k2 == 10:
-            if kegels[k2index + 1] != 0:
-                return "ONGELDIG"
-            if len(kegels) != k2index + 2:
+            if kegels[k2index + 1] != 0 or len(kegels) != k2index + 2:
                 return "ONGELDIG"
         elif len(kegels) != (k2index + 1):
             return "ONGELDIG"
@@ -57,9 +55,7 @@ def output(regel):
     elif bonussen[9] == 1:
         k1 = kegels[20]
         if k1 == 10:
-            if kegels[21] != 0:
-                return "ONGELDIG"
-            if len(kegels) != 22:
+            if kegels[21] != 0 or len(kegels) != 22:
                 return "ONGELDIG"
         elif len(kegels) != 21:
             return "ONGELDIG"
