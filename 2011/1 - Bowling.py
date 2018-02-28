@@ -26,9 +26,7 @@ def output(regel):
             bonussen[i // 2] += 2
         elif k1 + k2 == 10:
             bonussen[i // 2] += 1
-        vorige = 0
-        if i > 0:
-            vorige = worpen[i // 2 - 1]
+        vorige = worpen[i // 2 - 1] if i > 0 else 0
         score = vorige + k1 + k2
         worpen[i // 2] = score
     if bonussen[9] == 2:
