@@ -1,12 +1,3 @@
-import io
-import sys
-
-if len(sys.argv) > 1:
-    filename = sys.argv[1]
-    inp = ''.join(open(filename, "r").readlines())
-    sys.stdin = io.StringIO(inp)
-
-
 def shift(seq):
     return seq[1:] + [seq[0]]
 
