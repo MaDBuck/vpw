@@ -1,7 +1,6 @@
-# vpw
-Solutions Vlaamse programmeerwedstrijd
+# Oplossing Vlaamse programmeerwedstrijd
 
-Contributors:
-	- RobinDeBaets
-	- ManuDeBuck
-	- Chato De Veirman (PandaCrafter1)
+Contributors - NullByte:
+* [Robin De Baets](https://github.com/RobinDeBaets)
+* [Manu De Buck](https://github.com/ManuDeBuck)
+* [Chato De Veirman](https://github.com/PandaCrafter1) (PandaCrafter1)

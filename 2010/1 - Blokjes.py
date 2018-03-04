@@ -1,5 +1,2 @@
 for _ in range(int(input())):
-    result = 0
-    for i in range(1, int(input()) + 1):
-        result += i ** 3
-    print(result)
+    print(sum(i ** 3 for i in range(int(input()) + 1)))

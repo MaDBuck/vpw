@@ -1,17 +1,12 @@
-import re
-
-
 def output(regel):
-    regel = re.sub("10( |$)", "10 0\\1", regel)
+    regel = regel.replace("10", "10 0")
     kegels = list(int(s) for s in regel.split())
     worpen = [0] * 10
     bonussen = [0] * 10
     for i in range(0, 19, 2):
         k1 = kegels[i]
         k2 = kegels[i + 1]
-        if not 0 <= k1 <= 10 \
-                or not 0 <= k2 <= 10 \
-                or not 0 <= k1 + k2 <= 10:
+        if not (0 <= k1 <= 10 and 0 <= k2 <= 10 and 0 <= k1 + k2 <= 10):
             return "ONGELDIG"
         for index, w in ((index, w) for index, w in enumerate(bonussen) if w != 0):
             bonussen[index] -= 1

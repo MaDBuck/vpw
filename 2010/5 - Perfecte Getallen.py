@@ -1,16 +1,11 @@
 def getv(min, max):
     for n in range(min, max + 1):
-        som = n
-        for i in range(1, n // 2 + 1):
-            if n % i == 0:
-                som += i
+        som = n + sum(i for i in filter(lambda i: n % i == 0, range(1, n // 2 + 1)))
         if som != 0 and som % n == 0:
             return "{} {}".format(n, som // n)
     return "GEEN"
 
 
 for _ in range(int(input())):
-    i = input().split()
-    min = int(i[0])
-    max = int(i[1])
-    print(getv(min, max))
+    z = list(int(i) for i in input().split())
+    print(getv(z[0], z[1]))
