@@ -40,9 +40,3 @@ def done(nieuws):
 
 for _ in range(int(input())):
     print(output(int(input())))
-
-
-
-
-
-
