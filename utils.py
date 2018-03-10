@@ -26,6 +26,12 @@ a = [1, 2, 3]
 b = a[:]
 b = list(a)
 
+# Object kopieren
+
+import copy
+old_list = [[1, 2], [3, 4]]
+new_list = copy.deepcopy(old_list)
+
 # case insensitive regex search
 
 import re
@@ -38,3 +44,29 @@ import numpy
 
 array = [[0, 1], [1, 0]]
 print(numpy.matrix(array))
+
+
+# transpose array
+
+import numpy
+
+array = [[0, 1], [1, 0]]
+print(numpy.transpose(array))
+
+
+# cache method
+
+from functools import lru_cache as cache
+
+@cache(maxsize=None)
+def test():
+    pass
+
+# alle permutaties van lijst
+
+import itertools
+list(itertools.permutations([1, 2, 3]))
+
+
+
+
