@@ -1,5 +1,6 @@
 import itertools
 
+#Verbeter snelheid
 
 def count():
     budgets = input().split()
