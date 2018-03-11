@@ -38,6 +38,8 @@ def checkMax(arr, lengte, breedte, tijd):
     # print garfield
     max = 0
     for i in vis:
+        if i == (6,8):
+            manu = 0
         tick = 0
         aantalvissen = 0
         movablegarfield = garfield
@@ -48,8 +50,8 @@ def checkMax(arr, lengte, breedte, tijd):
             tick += afstandbij
             gegetenvissen.add(volgendevis)
             aantalvissen += 1
-            movablegarfield = i
-            volgendevis = vindbestevis(vis, movablegarfield, gegetenvissen)
+            movablegarfield = volgendevis
+            volgendevis = vindbestevis(vis, movablegarfield, gegetenvissen, lengte, breedte)
             if volgendevis is not None:
                 afstandbij = afstand(movablegarfield, volgendevis) + 1
         if aantalvissen > max:
@@ -57,7 +59,7 @@ def checkMax(arr, lengte, breedte, tijd):
     return max
 
 
-def vindbestevis(setje, garfield, gegetenvissen):
+def vindbestevis(setje, garfield, gegetenvissen, lengte, breedte):
     min = None
     visje = None
     for vis in setje:
@@ -65,15 +67,31 @@ def vindbestevis(setje, garfield, gegetenvissen):
             if min is None or afstand(vis, garfield) < min:
                 min = afstand(vis, garfield)
                 visje = vis
+            if min is not None and afstand(vis, garfield) == min:
+                minafs = 0
+                visvroeger = vindomstreken(visje, setje, gegetenvissen, minafs)
+                visnu = vindomstreken(vis, setje, gegetenvissen, minafs)
+                while(minafs < lengte + breedte and visvroeger is None and visnu is None):
+                    minafs += 1
+                    visvroeger = vindomstreken(visje, setje, gegetenvissen, minafs)
+                    visnu = vindomstreken(vis, setje, gegetenvissen, minafs)
+                if visnu is not None:
+                    visje = vis
     return visje
 
+def vindomstreken(plaats, set, gegetenvissen, min):
+    for vis in set:
+        if vis not in gegetenvissen and not vis == plaats:
+            if afstand(plaats, vis) <= min:
+                return vis
+    return None
 
 def afstand(tup1, tup2):
     return abs(tup1[0] - tup2[0]) + abs(tup1[1] - tup2[1])
 
 str = input()
 arr = []
-while(str):
+while str:
     arr.append(str)
     try:
         str = input()
