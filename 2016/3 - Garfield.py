@@ -1,4 +1,4 @@
-def main(lines):
+def main(lines, nummer):
     inhoud = lines
     a = inhoud[0].split()
     breedte = int(a[0])
@@ -8,7 +8,7 @@ def main(lines):
     max = checkMax(inhoud, lengte, breedte, tijd)
     for j in range(int(lengte)):
         inhoud.pop(0)
-    print(str(i + 1) + " " + str(max))
+    print(str(nummer) + " " + str(max))
 
 def checkMax(arr, lengte, breedte, tijd):
     garfield = ""
