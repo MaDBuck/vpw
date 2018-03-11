@@ -76,3 +76,8 @@ list(itertools.permutations([1, 2, 3]))
 import itertools
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 10]]
 list(itertools.product(*a))
+
+# Manhattan-metriek, met tup1 en tup2 respectievelijk 2 tuples met x, y coördinaat
+
+def afstand(tup1, tup2):
+    return abs(tup1[0] - tup2[0]) + abs(tup1[1] - tup2[1])
