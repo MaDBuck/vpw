@@ -81,3 +81,15 @@ list(itertools.product(*a))
 
 def afstand(tup1, tup2):
     return abs(tup1[0] - tup2[0]) + abs(tup1[1] - tup2[1])
+
+# Steek alles van stdin in een array en geef deze array door aan de methode main. cf. open(bestand).readlines()
+
+str = input()
+arr = []
+while str:
+    arr.append(str)
+    try:
+        str = input()
+    except:
+        str = False
+# main(arr)
