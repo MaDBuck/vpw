@@ -1,11 +1,3 @@
-import io
-import sys
-
-if len(sys.argv) > 1:
-    filename = sys.argv[1]
-    inp = ''.join(open(filename, "r").readlines())
-    sys.stdin = io.StringIO(inp)
-
 movement = {
     "U": 1,
     "D": -1,
