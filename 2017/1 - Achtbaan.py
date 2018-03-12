@@ -1,3 +1,11 @@
+import io
+import sys
+
+if len(sys.argv) > 1:
+    filename = sys.argv[1]
+    inp = ''.join(open(filename, "r").readlines())
+    sys.stdin = io.StringIO(inp)
+
 movement = {
     "U": 1,
     "D": -1,
@@ -17,48 +25,18 @@ chars = {
     "R": ["_"] * 4
 }
 for p in range(int(input())):
-    m = []
-    x = 0
-    y = 0
-    z = 0
+    m = {}
+    x = y = z = 0
     dir = 1
-    xS = yS = zS = 0
     for s in input().split()[1]:
         if s == "D":
             z += movement[s]
-        if x < 0:
-            x += 1
-            xS += 1
-            column = []
-            for ty in range(yS):
-                column.append([None] * zS)
-            m.insert(0, column)
-        if xS <= x:
-            xS += 1
-            column = []
-            for ty in range(yS):
-                column.append([None] * zS)
-            m.append(column)
-        if y < 0:
-            y += 1
-            yS += 1
-            for tx in range(xS):
-                m[tx].insert(0, [None] * zS)
-        if yS <= y:
-            yS += 1
-            for tx in range(xS):
-                m[tx].append([None] * zS)
-        if z < 0:
-            z += 1
-            zS += 1
-            for tx in range(xS):
-                for ty in range(yS):
-                    m[tx][ty].insert(0, None)
-        if zS <= z:
-            zS += 1
-            for tx in range(xS):
-                for ty in range(yS):
-                    m[tx][ty].append(None)
+        if x not in m:
+            m[x] = {}
+        if y not in m[x]:
+            m[x][y] = {}
+        if z not in m[x][y]:
+            m[x][y][z] = {}
         m[x][y][z] = chars[s][dir]
         if s == "U":
             z += movement[s]
@@ -66,13 +44,32 @@ for p in range(int(input())):
             dir = dirD[s][dir]
         x += movement["x"][dir]
         y += movement["y"][dir]
-    for z in reversed(range(zS)):
+    del x, y, z
+    minX = min(m.keys())
+    maxX = max(m.keys())
+    minY = maxY = minZ = maxZ = None
+    for x in m:
+        for y in m[x]:
+            for z in m[x][y].keys():
+                if minZ is None or z < minZ:
+                    minZ = z
+                if maxZ is None or z > maxZ:
+                    maxZ = z
+        if minY is None or y < minY:
+            minY = y
+        if maxY is None or y > maxY:
+            maxY = y
+    del x, y, z
+    for z in range(maxZ, minZ - 1, -1):
         line = []
-        for x in range(xS):
+        for x in range(minX, maxX + 1):
             c = "."
-            for y in reversed(range(yS)):
-                if m[x][y][z] is not None:
-                    c = m[x][y][z]
-                    break
+            for y in sorted(m[x], reverse=True):
+                try:
+                    if m[x][y][z] is not None:
+                        c = m[x][y][z]
+                        break
+                except KeyError:
+                    pass
             line.append(c)
         print(str(p + 1) + " " + "".join(line))
