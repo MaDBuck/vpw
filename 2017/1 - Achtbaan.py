@@ -39,7 +39,7 @@ for p in range(int(input())):
     del x, y, z
     minX = min(m.keys())
     maxX = max(m.keys())
-    minY = maxY = minZ = maxZ = None
+    minZ = maxZ = None
     for x in m:
         for y in m[x]:
             for z in m[x][y].keys():
@@ -47,10 +47,6 @@ for p in range(int(input())):
                     minZ = z
                 if maxZ is None or z > maxZ:
                     maxZ = z
-        if minY is None or y < minY:
-            minY = y
-        if maxY is None or y > maxY:
-            maxY = y
     del x, y, z
     for z in range(maxZ, minZ - 1, -1):
         line = []
