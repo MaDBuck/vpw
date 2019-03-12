@@ -116,3 +116,9 @@ while str:
     except:
         str = False
 # main(arr)
+
+# Sort dictionary on first or second element
+
+import operator
+x = {1: 2, 2: 3, 6: 10, 3: 2}
+sorted_x = sorted(x.items(), key=operator.itemgetter(0))
