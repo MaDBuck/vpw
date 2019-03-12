@@ -1,3 +1,20 @@
+# Sorteren
+
+l = [1, 3, 5, 7, 2]
+l.sort(key=lambda x: x, reverse=True)
+sorted(l)
+
+# 2D Array printen
+
+array = [[1, 2], [3, 4]]
+print(str(array).replace("],", "],\n"))
+
+# Is infinite
+
+import math
+
+math.isinf(float('inf'))
+
 # alphabet
 
 import string
@@ -33,6 +50,9 @@ import copy
 
 old_list = [[1, 2], [3, 4]]
 new_list = copy.deepcopy(old_list)
+new_list = list(old_list)
+new_list = copy.copy(old_list)
+new_list = old_list[:]
 
 # case insensitive regex search
 
@@ -74,13 +94,16 @@ list(itertools.permutations([1, 2, 3]))
 # alle combinaties van meerdere lijsten
 
 import itertools
+
 a = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 10]]
 list(itertools.product(*a))
+
 
 # Manhattan-metriek, met tup1 en tup2 respectievelijk 2 tuples met x, y coördinaat
 
 def afstand(tup1, tup2):
     return abs(tup1[0] - tup2[0]) + abs(tup1[1] - tup2[1])
+
 
 # Steek alles van stdin in een array en geef deze array door aan de methode main. cf. open(bestand).readlines()
 
