@@ -29,16 +29,7 @@ def dijkstra(graph, source, destination):
                 heappush(queue, (distance[v], v))
 
 
-import copy
-import io
 import itertools
-import sys
-from math import isinf
-
-if len(sys.argv) > 1:
-    filename = sys.argv[1]
-    inp = ''.join(open(filename, "r").readlines())
-    sys.stdin = io.StringIO(inp)
 
 k = int(input())
 for t in range(k):
